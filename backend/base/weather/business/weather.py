@@ -1,8 +1,9 @@
 import requests
-from weather.models import Weather
+from weather.models import FavoriteWeather, Forecast, Weather
 from core.business import BasicService
 from django.db import transaction
 from django.conf import settings
+from django.utils import timezone
 
 
 class WeatherService(BasicService):
@@ -20,7 +21,7 @@ class WeatherService(BasicService):
 
         data = requests.get(url).json()
 
-        instance = self.save_forecast(data)
+        instance = self.save_weather(data)
 
         return self.get(instance.pk)
 
@@ -36,7 +37,7 @@ class WeatherService(BasicService):
 
         data = requests.get(url).json()
 
-        instance = self.save_forecast(data)
+        instance = self.save_weather(data)
 
         return self.get(instance.pk)
 
@@ -49,8 +50,24 @@ class WeatherService(BasicService):
         return self.single().get(pk=pk)
 
     @transaction.atomic
-    def save_forecast(self, data):
+    def save_weather(self, data):
         instance, created = Weather.objects.update_or_create(
             city=data['results']['city'], defaults={'results': data['results']}
+        )
+
+        forecasts = instance.results['forecast']
+
+        for day in forecasts:
+            self.save_forecast(instance, day)
+
+        return instance
+
+    def save_forecast(self, weather, data):
+        year = timezone.now().year
+
+        instance, created = Forecast.objects.update_or_create(
+            weather=weather, year=year, date=data['date'], defaults={
+                'weekday': data['weekday'], 'max': data['max'], 'min': data['min'], 
+                'description': data['description'], 'condition': data['condition']}
         )
         return instance

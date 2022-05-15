@@ -16,7 +16,6 @@ const Weather = observer(props => {
         <>
             <TodayWeatherCard forecast={data} />
             <CardGroup centered>
-                {console.log(forecast)}
                 {forecast?.map(item =>
                     <DayWeatherCard forecast={item} />)}
             </CardGroup>
