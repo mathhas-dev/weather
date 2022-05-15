@@ -60,7 +60,7 @@ const HomePage = observer(props => {
 
       <SuperTitle title={t("Welcome to Voltalia Weather Site!")} />
 
-      <DayWeatherCard />
+      <DayWeatherCard day="16" weekDay="Segunda-Feira" weather="rain" description="Don't expect to see the sun today :'("/>
 
     </Page>
   )

@@ -7,15 +7,26 @@ import rain from 'assets/rain.png';
 
 
 const DayWeatherCard = props => {
+  const { day, weekDay, weather, description } = props;
+  let icon;
+
+  if (weather === 'sun') {
+    icon = sun;
+  } else if (weather === 'sunny') {
+    icon = sunny;
+  } else {
+    icon = rain;
+  }
+
   return (
     <Card>
       <Card.Content>
         <Image
           floated='left'
           size='small'
-          src={rain} />
-        <Card.Header>Segunda-Feira, 16 de Maio de 2022</Card.Header>
-        <Card.Description>Sol!</Card.Description>
+          src={icon} />
+        <Card.Header>{day} {weekDay}</Card.Header>
+        <Card.Description>{description}</Card.Description>
       </Card.Content>
     </Card>
   )
