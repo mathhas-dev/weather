@@ -24,4 +24,5 @@ urlpatterns = [
     path(f'{prefix}api-auth', include('rest_framework.urls')),
     path(f'{prefix}security/', include('security.urls')),
     path(f'{prefix}access/', include('access.urls')),
+    path(f'{prefix}weather/', include('weather.urls')),
 ]

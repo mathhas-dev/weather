@@ -41,3 +41,5 @@ python manage.py initdata
 * No arquivo: ".vscode/settings.json" está a especificação do projeto, para que o interpretador compreenda que os arquivos utilizados/criados estão na pasta "base". Para utilizar outra IDE, copie esse arquivo para o diretório principal, caso o interpretador não identifique os imports.  
 
 * Super usuários são passados por alto para o django-guardian, para realizar testes válidos, criar usuários manualmente
+
+Referencia de WOEID: https://muftsabazaar.com/blog/post/list-of-woeid-codes-of-brazil

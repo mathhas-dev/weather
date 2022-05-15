@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'core',
     'security',
     'access',
+    'weather'
 ]
 
 MIDDLEWARE = [
