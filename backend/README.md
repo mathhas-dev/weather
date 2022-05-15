@@ -43,3 +43,5 @@ python manage.py initdata
 * Super usuários são passados por alto para o django-guardian, para realizar testes válidos, criar usuários manualmente
 
 Referencia de WOEID: https://muftsabazaar.com/blog/post/list-of-woeid-codes-of-brazil
+
+* Para encontrar os apps desenvolvidos acesse a pasta "base"

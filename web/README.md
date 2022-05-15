@@ -11,3 +11,5 @@ yarn install ou npm install
 ```
 yarn start
 ```
+
+* Para encontrar os apps desenvolvidos: "/src/modules"
