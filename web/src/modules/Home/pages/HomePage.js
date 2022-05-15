@@ -6,7 +6,7 @@ import "../../../locales/i18n";
 import SelectLanguage from '../../../locales/component'
 import { userStore } from 'stores';
 import { observer } from 'mobx-react';
-import DayWeatherCard from 'modules/Weather/components/DayWeather';
+import { Weather } from 'modules/Weather/pages';
 
 const SuperTitle = props => {
   const { layout, title } = props
@@ -60,7 +60,7 @@ const HomePage = observer(props => {
 
       <SuperTitle title={t("Welcome to Voltalia Weather Site!")} />
 
-      <DayWeatherCard day="16" weekDay="Segunda-Feira" weather="rain" description="Don't expect to see the sun today :'("/>
+      <Weather />
 
     </Page>
   )

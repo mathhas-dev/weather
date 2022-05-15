@@ -1,3 +1,3 @@
-import { DayWeatherCard } from "./DayWeather";
+import { TodayWeatherCard } from "./DayWeather";
 
-export { DayWeatherCard };
+export { TodayWeatherCard };

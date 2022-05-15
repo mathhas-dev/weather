@@ -1,3 +1,3 @@
-import { weathers, weatherStore, weatherDomain } from "./stores";
+import { weatherStore, weatherDomain } from "./Weather";
 
-export { weathers, weatherStore, weatherDomain };
+export { weatherStore, weatherDomain };

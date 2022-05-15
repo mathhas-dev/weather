@@ -1,5 +1,3 @@
-import PaginaExemplo from './Day'
+import Weather from "./Weather";
 
-export {
-  PaginaExemplo
-}
+export { Weather };

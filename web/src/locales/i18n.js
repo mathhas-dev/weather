@@ -3,13 +3,17 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import moment from "moment";
 
-import TRANSLATIONS_ES_MAIN from "./es/translations.json";
 import TRANSLATIONS_EN_MAIN from "./en/translations.json";
+import TRANSLATIONS_ES_MAIN from "./es/translations.json";
 import TRANSLATIONS_PT_BR_MAIN from "./pt_br/translations.json";
 
-import TRANSLATIONS_ES_USER from "../modules/User/locales/es/translations.json";
 import TRANSLATIONS_EN_USER from "../modules/User/locales/en/translations.json";
+import TRANSLATIONS_ES_USER from "../modules/User/locales/es/translations.json";
 import TRANSLATIONS_PT_BR_USER from "../modules/User/locales/pt_br/translations.json";
+
+import TRANSLATIONS_EN_WEATHER from "../modules/Weather/locales/en/translations.json";
+import TRANSLATIONS_ES_WEATHER from "../modules/Weather/locales/es/translations.json";
+import TRANSLATIONS_PT_BR_WEATHER from "../modules/Weather/locales/pt_br/translations.json";
 
 // A internacionalização desse sistema foi baseada no artigo abaixo:
 // https://lokalise.com/blog/how-to-internationalize-react-application-using-i18next/
@@ -23,14 +27,14 @@ i18n
             // Para adicionar arquivos de outros módulos, faça
             // por exemplo: { ...TRANSLATIONS_EN_MODULE, ...TRANSLATIONS_EN_USER } 
             en: {
-                translation: { ...TRANSLATIONS_EN_MAIN, ...TRANSLATIONS_EN_USER }
+                translation: { ...TRANSLATIONS_EN_MAIN, ...TRANSLATIONS_EN_USER, ...TRANSLATIONS_EN_WEATHER }
 
             },
             es: {
-                translation: { ...TRANSLATIONS_ES_MAIN, ...TRANSLATIONS_ES_USER }
+                translation: { ...TRANSLATIONS_ES_MAIN, ...TRANSLATIONS_ES_USER, ...TRANSLATIONS_ES_WEATHER }
             },
             pt_br: {
-                translation: { ...TRANSLATIONS_PT_BR_MAIN, ...TRANSLATIONS_PT_BR_USER }
+                translation: { ...TRANSLATIONS_PT_BR_MAIN, ...TRANSLATIONS_PT_BR_USER, ...TRANSLATIONS_PT_BR_WEATHER }
             }
         }
     });
