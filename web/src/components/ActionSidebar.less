@@ -1,0 +1,31 @@
+.ui.actionsidebar.segment {
+    background: white;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+
+    &.desktop {
+        max-width: fit-content;
+        min-height: 100vh;
+        max-height: 100vh;
+        margin-bottom: 0;
+    }
+
+    &.tablet {
+        width: 100%;
+        border-left: 1px solid var(--violet);
+        min-height: 100vh;
+        max-height: 100vh;
+    }
+
+    &.mobile {
+        width: 100%;
+        border-top: 1px solid var(--violet);
+    }
+
+    .link.icon {
+        margin: 0;
+    }
+}

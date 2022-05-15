@@ -1,0 +1,24 @@
+runtime: nodejs16
+env: standard
+
+# Domínio a fazer o deploy
+service: front
+
+handlers:
+  - url: /static
+    static_dir: build/static
+  - url: /(.*\.(json|ico|js))$
+    static_files: build/\1
+    upload: build/.*\.(json|ico|js)$
+  - url: /.*
+    static_files: build/index.html
+    upload: build/index.html
+
+instance_class: F1
+
+automatic_scaling:
+  target_cpu_utilization: 0.80
+  min_instances: 1
+  max_instances: 1
+# max_pending_latency: 100ms
+# max_concurrent_requests: 50

@@ -1,0 +1,14 @@
+node_modules/
+build/
+.env
+env/
+/env
+_pycache__/
+**.log
+**.pyc
+**.lock
+settings.json
+**.sqlite3
+*.sqlite3
+**.sqlite
+**basedb.sqlite3

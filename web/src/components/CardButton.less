@@ -1,0 +1,108 @@
+@import '../semantic-ui/site/globals/site.variables';
+
+@radius: 0.28571429rem;
+
+.ui.basic.button.card-button {
+    align-items: stretch;
+    background-color: white !important;
+    border: 3px solid var(--violet);
+    border-radius: @radius;
+    display: flex;
+    min-height: 6em;
+    padding: 1em;
+    width: 100%;
+
+    &.darker {
+        border: 3px solid darken(@violet, 10%);
+    }
+
+    &.small {
+        min-height: 4em;
+        padding: 0.3em;
+    }
+
+    &.selected {
+        background-color: hsla(0, 0%, 0%, .08) !important;
+        border: 3px solid darken(@violet, 25%);
+    }
+
+    &:hover, &:focus {
+        box-shadow: 0px 0px 2px 3px rgba(34, 36, 38, 0.15);
+    }
+
+    & > .card-button__icon-wrapper {
+        align-items: center;
+        background: @violet;
+        // border-radius: @radius 0 0 @radius;
+        display: flex;
+        justify-content: center;
+        margin: -1em 1.5em -1em -1em;
+        min-width: 6em;
+    }
+
+    &.darker > .card-button__icon-wrapper {
+        background: darken(@violet, 10%);
+    }
+
+    &.selected > .card-button__icon-wrapper {
+        background: darken(@violet, 25%);
+    }
+
+    &.small > .card-button__icon-wrapper {
+        margin: -0.3em 0.45em -0.3em -0.3em;
+        min-width: 4em;
+    }
+
+    .card-button__header-wrapper {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+
+        .card-button__titulo {
+            // letter-spacing: 0.2px;
+            line-height: 115%;
+            margin: 0;
+            text-align: left;
+        }
+    
+        .card-button__subtitulo {
+            margin: 0.3em 0 0;
+            text-align: left;
+        }
+
+    }
+
+    &.small .card-button__header-wrapper {
+
+        .card-button__titulo {
+            font-size: 1.1em;
+        }
+
+        .card-button__subtitulo {
+            font-size: 1.1em;
+        }
+    }
+}
+
+.ui.grid.class-button__grid {
+    padding: 0 0 0 1em;
+    // border-left: 2px solid var(--violet);
+    margin: 0;
+    position: relative;
+
+    &:before {
+        border-left: 2px solid var(--violet);
+        content: '';
+        height: calc(100% - 1em);
+        margin-left: -1em;
+        position: absolute;
+        top: 0.5em;
+        width: 0;
+    }
+
+    &>.column:not(.row) {
+        padding: 0.5em;
+    }
+}

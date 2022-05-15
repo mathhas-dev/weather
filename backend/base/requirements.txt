@@ -1,0 +1,21 @@
+Django~=2.2
+djangorestframework~=3.11.0
+django-cors-headers~=3.3.0
+PyJWT==1.7.1
+djangorestframework_simplejwt~=4.5.0
+django-filter~=2.2.0
+Markdown~=3.0.1
+python-dateutil~=2.7.3
+requests~=2.24.0
+# Utilizado para enviar e-mails de senha no módulo security
+itsdangerous~=1.1.0
+pycpfcnpj==1.5.1
+python-decouple==3.4
+django-guardian==2.4.0
+sendgrid==6.7.1
+Pillow==8.3.1
+twilio==6.62.1
+django-twilio==0.13.1
+PyMySQL==1.0.2
+wheel==0.37.0
+mysqlclient==2.0.3

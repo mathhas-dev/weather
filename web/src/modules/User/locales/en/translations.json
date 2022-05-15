@@ -1,0 +1,65 @@
+{
+    "Main Profile": "Main Profile",
+    "Profiles": "Profiles",
+    "Select profile": "Select profile",
+    "Username": "Username",
+    "Name": "Name",
+    "E-mail": "E-mail",
+    "Save": "Save",
+    "Back": "Back",
+    "Edit user": "Edit user",
+    "Register user": "Register user",
+    "Remove": "Remove",
+    "Contry Code": "Contry Code",
+    "Select country code": "Select contry code",
+    "Phone": "Phone",
+    "Action": "Action",
+
+
+    "User": "User",
+    "Home page": "Home page",
+    "Change Password": "Change Password",
+    "Unlock User": "Unlock User",
+    "New User": "New User",
+
+
+    "Change Profile": "Change Profile",
+    "Log off": "Log off",
+    "Login": "Login",
+    "Current Profile": "Current Profile",
+    "New password": "New password",
+    "Confirm new password": "Confirm new password",
+    "This field cannot be blank.": "This field cannot be blank.",
+    "Password confirmation does not match.": "Password confirmation does not match.",
+
+
+    "Welcome to Voltalia Weather Site!": "Welcome to Voltalia Weather Site!",
+    "Users": "Users",
+    "Management of users": "Management of users",
+
+
+    "Confirm User Removal ": "Confirm User Removal ",
+    "Block user ": "Block user ",
+    "New": "New",
+    "ID": "ID",
+    "Profile": "Profile",
+    "Blocked": "Blocked",
+    "Block": "Block",
+    
+
+    "Unlock": "Unlock",
+
+
+    "User removed successfully.": "User removed successfully.",
+    "Error removing user: ": "Error removing user: ",
+    "User blocked successfully.": "User blocked successfully.",
+    "Error blocking user: ": "Error blocking user: ",
+    "User registered successfully.": "User registered successfully.",
+    "User updated successfully.": "User updated successfully.",
+    "Error when registering user, CPF already registered in our database.": "Error when registering user, CPF already registered in our database.",
+    "Error updating user.": "Error updating user.",
+    "Error registering user.": "Error registering user.",
+    "User unlocked.": "User unlocked.",
+    "Error unlocking user.": "Error unlocking user."
+
+}

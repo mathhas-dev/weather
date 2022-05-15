@@ -1,0 +1,24 @@
+.empty-page {
+    display: flex;
+}
+
+.empty-panel {
+    background: #1b1c1d;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0 3vw 10vh;
+    width: 50vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui.image.empty-panel__logo {
+    max-width: 220px;
+    min-width: 120px;
+    width: 30%;
+}
+
+.empty-panel__title {
+    max-width: 300px;
+}

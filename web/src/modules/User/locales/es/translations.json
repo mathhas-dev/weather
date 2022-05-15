@@ -1,0 +1,63 @@
+{
+    "Main Profile": "Perfil principal",
+    "Profiles": "Perfiles",
+    "Select profile": "Seleccionar perfil",
+    "Username": "Username",
+    "Name": "Nombre",
+    "E-mail": "E-mail",
+    "Save": "Guardar",
+    "Back": "Volver", 
+    "Edit user": "Editar usuario",
+    "Register user": "Registrar usuario",
+    "Remove": "Eliminar",
+    "Contry Code": "Código del país",
+    "Select country code": "Seleccione el código de país",
+    "Phone": "Teléfono",
+    "Action": "Acción",
+
+
+    "User": "Usuario",
+    "Home page": "Página de inicio",
+    "Change Password": "Cambiar la contraseña",
+    "Unlock User": "Desbloquear usuario",
+    "New User": "Nuevo usuario",
+
+
+    "Change Profile": "Cambiar el perfil",
+    "Log off": "Desconectarse",
+    "Login": "Login",
+    "Current Profile": "Perfil actual",
+    "New password": "Nueva contraseña",
+    "Confirm new password": "Confirmar nueva contraseña",
+    "This field cannot be blank.": "Este campo no puede estar vacío.",
+    "Password confirmation does not match.": "La confirmación de la contraseña no coincide.",
+
+
+    "Welcome to Voltalia Weather Site!": "¡Bienvenido al sitio meteorológico de Voltalia!",
+    "Users": "Usuarios",
+    "Management of users": "Gestión de usuarios",
+
+
+    "Confirm User Removal ": "Confirmar la eliminación del usuario ",
+    "Block user ": "Bloquear usuario ",
+    "New": "Nuevo",
+    "ID": "ID",
+    "Profile": "Perfil",
+    "Blocked": "Obstruido",
+    "Block": "Bloquear",
+
+    "Unlock": "Desbloquear",
+
+
+    "User removed successfully.": "Usuario eliminado con éxito.",
+    "Error removing user: ": "Error al eliminar el usuario: ",
+    "User blocked successfully.": "Usuario bloqueado con éxito.",
+    "Error blocking user: ": "Error al bloquear al usuario: ",
+    "User registered successfully.": "Usuario registrado con éxito.",
+    "User updated successfully.": "Usuario actualizado con éxito.",
+    "Error when registering user, CPF already registered in our database.": "Error al registrar el usuario, el CPF ya está registrado en nuestra base de datos.",
+    "Error updating user.": "Error al actualizar el usuario.",
+    "Error registering user.": "Error al registrar el usuario.",
+    "User unlocked.": "Usuario desbloqueado.",
+    "Error unlocking user.": "Error al desbloquear al usuario."
+}

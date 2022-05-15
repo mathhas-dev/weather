@@ -1,0 +1,64 @@
+{
+    "Main Profile": "Perfil Principal",
+    "Profiles": "Perfis",
+    "Select profile": "Selecione o perfil",
+    "Username": "Username",
+    "Name": "Nome", 
+    "E-mail": "E-mail",
+    "Save": "Salvar",
+    "Back": "Voltar",
+    "Edit user": "Editar usuário",
+    "Register user": "Registrar usuário",
+    "Remove": "Excluir",
+    "Contry Code": "Código do país",
+    "Select country code": "Selecione o código do país",
+    "Phone": "Telefone",
+    "Action": "Ações",
+
+
+    "User": "Usuário",
+    "Home page": "Página inicial",
+    "Change Password": "Trocar a senha",
+    "Unlock User": "Desbloquear usuário",
+    "New User": "Novo usuário",
+
+
+    "Change Profile": "Mudar de perfil",
+    "Log off": "Sair",
+    "Login": "Login",
+    "Current Profile": "Perfil Atual",
+    "New password": "Nova Senha",
+    "Confirm new password": "Confirme a nova senha",
+    "This field cannot be blank.": "Este campo não pode estar vazio.",
+    "Password confirmation does not match.": "A confirmação da senha não confere.",
+
+
+    "Welcome to Voltalia Weather Site!": "Bem-vindo ao site do tempo Voltalia!",
+    "Users": "Usuários",
+    "Management of users": "Gestão de Usuários",
+
+
+    "Confirm User Removal ": "Confirmar a remoção do Usuário ",
+    "Block user ": "Bloquear usuário ",
+    "New": "Novo",
+    "ID": "ID",
+    "Profile": "Perfil",
+    "Blocked": "Bloqueado",
+    "Block": "Bloquear",
+
+    "Unlock": "Desbloquear",
+
+
+    "User removed successfully.": "Usuário removido com sucesso.",
+    "Error removing user: ": "Erro ao remover usuário: ",
+    "User blocked successfully.": "Usuário bloqueado com sucesso.",
+    "Error blocking user: ": "Erro ao bloquear usuário:",
+    "User registered successfully.": "Usuário registrado com sucesso.",
+    "User updated successfully.": "Usuário atualizado com sucesso.",
+    "Error when registering user, CPF already registered in our database.": "Erro ao cadastrar usuário, CPF já cadastrado em nosso banco de dados.",
+    "Error updating user.": "Erro ao atualizar usuário.",
+    "Error registering user.": "Erro ao registrar o usuário.",
+    "User unlocked.": "Usuário desbloqueado.",
+    "Error unlocking user.": "Erro ao desbloquear o usuário."
+    
+}

@@ -1,0 +1,42 @@
+@import 'src/semantic-ui/site/globals/site.variables';
+
+.main-page__content {
+    background-color: @yellow;
+}
+
+.main-page__side-panels {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.main-page {
+    display: grid;
+    grid-template-columns: minmax(280px, 15vw) auto min-content;
+    position: relative;
+}
+
+.main-page__panel-menu {
+    .main-page__side-panels();
+    // position: sticky;
+    // top: 0;
+    // height: 100vh;
+}
+
+.main-page__content {
+    min-height: 7000px;
+    padding: 2em 3em;
+}
+
+.main-page__panel-actions {
+    // .main-page__side-panels();
+    // position: sticky;
+    // top: 0;
+    // height: 100vh;
+    min-width: 180px;
+}
+
+.main-page__panel-actions--empty {
+    min-width: 0;
+    width: 100%;
+}

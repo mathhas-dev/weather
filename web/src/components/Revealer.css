@@ -1,0 +1,30 @@
+
+.ui.revealer__panel.segment{
+    border-width: 0;
+    /* margin-bottom: -14px; */
+    max-height: 0;
+    overflow: hidden;
+    padding-bottom: 0;
+    padding-top: 0;
+    transition:
+        0.5s margin-bottom,
+        0.4s max-height cubic-bezier(0.33, 1, 0.68, 1),
+        0.5s padding-bottom,
+        0.5s padding-top;
+}
+
+.ui.revealer__panel--open.segment {
+    max-height: 100vh;
+    overflow: hidden;
+    transition:
+        0.5s margin-bottom,
+        0.4s max-height cubic-bezier(0.32, 0, 0.67, 0),
+        0.5s padding-bottom,
+        0.5s padding-top;
+}
+
+.revealer__button {
+    position: absolute;
+    right: -2px;
+    top: -36px;
+}
