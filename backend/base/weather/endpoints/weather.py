@@ -1,3 +1,4 @@
+from core.utils.user import UserUtils
 from weather.serializers import WeatherSerializer
 from weather.business import WeatherService
 from access.permissions import ResourcePermission
@@ -31,5 +32,27 @@ class WeatherResource(ResourceCore, ModelCrud):
                 serializer = WeatherSerializer(day_weather)
                 return Response(serializer.data)
             return Response({"detail": "Weather not found."}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            raise APIException(e)
+
+    @action(detail=False, methods=['get'], url_path='get_weather_from_api_WOEID')
+    def get_weather_from_api_WOEID(self, request):
+        try:
+            woeid = request.data['woeid']
+            service = WeatherService()
+            results = service.get_weather_from_api_WOEID(woeid)
+            serializer = WeatherSerializer(results)
+            return Response(serializer.data)
+        except Exception as e:
+            raise APIException(e)
+
+    @action(detail=False, methods=['get'], url_path='get_weather_from_api_GEOIP')
+    def get_weather_from_api_GEOIP(self, request):
+        try:
+            user_ip = UserUtils.get_user_ip(request)
+            service = WeatherService()
+            results = service.get_weather_from_api_GEOIP(user_ip)
+            serializer = WeatherSerializer(results)
+            return Response(serializer.data)
         except Exception as e:
             raise APIException(e)
