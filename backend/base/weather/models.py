@@ -9,12 +9,6 @@ class Weather(BaseModel):
     results = models.TextField()
 
 
-class FavoriteWeather(BaseModel):
-    weather = models.ForeignKey(Weather, on_delete=models.PROTECT)
-    user = models.OneToOneField(
-        User, related_name='favorite_weather_user', on_delete=models.PROTECT)
-
-
 class Forecast(BaseModel):
     weather = models.ForeignKey(Weather, on_delete=models.PROTECT)
     year = models.IntegerField()
@@ -26,3 +20,9 @@ class Forecast(BaseModel):
     min = models.IntegerField()
     description = models.CharField(max_length=255)
     condition = models.CharField(max_length=20)
+
+
+class FavoriteWeather(BaseModel):
+    forecast = models.ForeignKey(Forecast, on_delete=models.PROTECT)
+    user = models.OneToOneField(
+        User, related_name='favorite_weather_user', on_delete=models.PROTECT)

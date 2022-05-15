@@ -67,7 +67,28 @@ class WeatherService(BasicService):
 
         instance, created = Forecast.objects.update_or_create(
             weather=weather, year=year, date=data['date'], defaults={
-                'weekday': data['weekday'], 'max': data['max'], 'min': data['min'], 
+                'weekday': data['weekday'], 'max': data['max'], 'min': data['min'],
                 'description': data['description'], 'condition': data['condition']}
         )
+        return instance
+
+    @transaction.atomic
+    def save_favorite_weather(self, user, forecast_id):
+        forecast = Forecast.objects.get(id=forecast_id)
+
+        instance = FavoriteWeather.objects.update_or_create(
+            forecast=forecast, user=user, defaults={
+                'forecast': forecast, 'user': user}
+        )
+
+        return instance
+
+    @transaction.atomic
+    def remove_favorite_weather(self, user, forecast_id):
+        forecast = Forecast.objects.get(id=forecast_id)
+
+        instance = FavoriteWeather.objects.filter(
+            forecast=forecast, user=user
+        ).first().delete()  # Logical deletion
+
         return instance

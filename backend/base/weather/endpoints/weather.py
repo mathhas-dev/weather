@@ -22,7 +22,7 @@ class WeatherResource(ResourceCore, ModelCrud):
     permission_classes = [WeatherResourcePermission]
     serializer_class = WeatherSerializer
 
-    @action(detail=False, methods=['get'], url_path='get_favorite_day_weather')
+    @action(detail=False, methods=['GET'], url_path='get_favorite_day_weather')
     def get_favorite_day_weather(self, request):
         try:
             service = WeatherService()
@@ -35,7 +35,7 @@ class WeatherResource(ResourceCore, ModelCrud):
         except Exception as e:
             raise APIException(e)
 
-    @action(detail=False, methods=['get'], url_path='get_weather_from_api_WOEID')
+    @action(detail=False, methods=['GET'], url_path='get_weather_from_api_WOEID')
     def get_weather_from_api_WOEID(self, request):
         try:
             woeid = request.data['woeid']
@@ -46,7 +46,7 @@ class WeatherResource(ResourceCore, ModelCrud):
         except Exception as e:
             raise APIException(e)
 
-    @action(detail=False, methods=['get'], url_path='get_weather_from_api_GEOIP')
+    @action(detail=False, methods=['GET'], url_path='get_weather_from_api_GEOIP')
     def get_weather_from_api_GEOIP(self, request):
         try:
             user_ip = UserUtils.get_user_ip(request)
@@ -54,5 +54,27 @@ class WeatherResource(ResourceCore, ModelCrud):
             results = service.get_weather_from_api_GEOIP(user_ip)
             serializer = WeatherSerializer(results)
             return Response(serializer.data)
+        except Exception as e:
+            raise APIException(e)
+
+    @action(detail=False, methods=['POST'], url_path='save_favorite_weather')
+    def save_favorite_weather(self, request):
+        try:
+            service = WeatherService()
+            instance = service.save_favorite_weather(request.user, request.data['forecast_id'])
+            if instance:
+                return Response({'detail': 'success'})
+
+            return Response({'detail': 'error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except Exception as e:
+            raise APIException(e)
+
+    @action(detail=False, methods=['PUT'], url_path='remove_favorite_weather')
+    def remove_favorite_weather(self, request):
+        try:
+            service = WeatherService()
+            service.remove_favorite_weather(request.user, request.data['forecast_id'])
+
+            return Response({'detail': 'success'})
         except Exception as e:
             raise APIException(e)
