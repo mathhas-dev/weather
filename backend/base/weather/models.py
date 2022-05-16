@@ -24,5 +24,5 @@ class Forecast(BaseModel):
 
 class FavoriteForecast(BaseModel):
     forecast = models.ForeignKey(Forecast, on_delete=models.PROTECT)
-    user = models.OneToOneField(
+    user = models.ForeignKey(
         User, related_name='favorite_weather_user', on_delete=models.PROTECT)
