@@ -14,3 +14,5 @@
 * * login: 10001, password: admin123
 * * login: 10002, password: admin123
 * Or feel free to create an account
+
+# Backend ".env" file was sent by email
