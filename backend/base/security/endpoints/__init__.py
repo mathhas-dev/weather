@@ -1,4 +1,4 @@
-from .password import new_password, reset_password
+from .password import new_password, reset_password, registrate_yourself
 from .token import TokenObtainPairViewBlocking, ValidateSmsToken
 from .sms import GetSmsTokenLogin, GetSmsToken2FA
 from .logout import Logout
@@ -10,6 +10,6 @@ __all__ = [
     "GetSmsTokenLogin",
     "ValidateSmsToken",
     "GetSmsToken2FA",
-    "Logout"
+    "Logout",
+    "registrate_yourself"
 ]
-

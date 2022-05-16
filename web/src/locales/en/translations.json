@@ -2,7 +2,7 @@
     "Management": "Management",
     "Error updating user active profile.": "Error updating user active profile.",
     "An email will be sent with password change instructions.": "An email will be sent with password change instructions.",
-    "Error trying to request password change.": "Error trying to request password change.",
+    "User not found! If the admin did't registered you, register yourself below.": "User not found! If the admin did't registered you, register yourself below.",
     "Thank you for using our services!": "Thank you for using our services!",
     "No records found": "No records found",
     "You don't have permission to perform this action!": "You don't have permission to perform this action!"

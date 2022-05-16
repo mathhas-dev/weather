@@ -80,6 +80,13 @@ const doNewPassword = async (email) => {
   return await response.json();
 };
 
+const doRegistrateYourself = async (email, name) => {
+  const rest = new Rest('registrate-yourself');
+  rest.api = 'security/api';
+  const response = await rest.onRegistrateYourself({ email: email, name: name });
+  return await response.json();
+};
+
 const doChangePassword = async (data) => {
   const rest = new Rest('new-password')
   rest.api = 'security/api'
@@ -348,7 +355,7 @@ const userStore = observable({
   set_401_or_403: action(function (message) {
     // Seta 401 ou 403 no localStorage, afim de apresentar erro após redirecionamento
     set_401_or_403(message);
-    
+
     this.message = {
       content: message,
       error: true
@@ -395,7 +402,28 @@ export const passwordStore = observable({
       };
     } catch (error) {
       this.message = {
-        content: i18n.t("Error trying to request password change."),
+        content: i18n.t("User not found! If the admin did't registered you, register yourself below."),
+        error: true
+      };
+      this.error = error;
+    } finally {
+      this.loading = false;
+    }
+  }),
+  registrateYourself: action(async function (email, name) {
+    this.loading = true;
+    this.error = null;
+    this.message = null;
+    try {
+      await doRegistrateYourself(email, name);
+      this.error = null;
+      this.message = {
+        content: i18n.t("An email will be sent with first login instructions."),
+        success: true
+      };
+    } catch (error) {
+      this.message = {
+        content: i18n.t("User not found! If the admin did't registered you, register yourself below."),
         error: true
       };
       this.error = error;

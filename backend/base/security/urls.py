@@ -10,6 +10,7 @@ router = routers.DefaultRouter(trailing_slash=True)
 urlpatterns = [
     path('api/new-password/', endpoints.new_password),
     path('api/reset-password/', endpoints.reset_password),
+    path('api/registrate-yourself/', endpoints.registrate_yourself),
     path('api/api-token-auth/', views.obtain_auth_token),
     path(
         'api/token/',

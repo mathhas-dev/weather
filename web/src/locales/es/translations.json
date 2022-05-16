@@ -2,7 +2,7 @@
     "Management": "Gestión",
     "Error updating user active profile.": "Error al actualizar el perfil activo del usuario.",
     "An email will be sent with password change instructions.": "Se enviará un correo electrónico con instrucciones para cambiar la contraseña.",
-    "Error trying to request password change.": "Error al intentar solicitar el cambio de contraseña.",
+    "User not found! If the admin did't registered you, register yourself below.": "Error al intentar solicitar el cambio de contraseña.",
     "Thank you for using our services!": "¡Gracias por usar nuestros servicios!",
     "No records found": "No se encontraron registros",
     "You don't have permission to perform this action!": "¡No tienes permiso para realizar esta acción!"

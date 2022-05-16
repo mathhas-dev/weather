@@ -22,7 +22,7 @@ class ResetPasswordEmail(Email):
         template = template_internacionalization('reset_password', user)
 
         self.template = template
-        self.url = 'change_password/' + token
+        self.url = 'user/change_password/' + token
         seconds = settings.RECOVERY_THRESHOLD
         self.add_extra('tempo', pretty_time_delta(seconds))
         self.to_email = [user.email]
@@ -53,7 +53,7 @@ class First_access_user(Email):
         self.template = template
         self.enabled = True
         self.to_email = user.email
-        self.url = 'change_password/' + token
+        self.url = 'user/change_password/' + token
         seconds = settings.RECOVERY_THRESHOLD
         self.add_extra('tempo', pretty_time_delta(seconds))
         self.add_extra('login', user.username)
@@ -79,7 +79,8 @@ class PasswordManager:
             email.send()
             return user
         except ObjectDoesNotExist:
-            raise NotFound({'email': ['User not found. Review the email.']})
+            raise NotFound(
+                {'email': ["User not found! If admin did't registered you, register yourself below."]})
 
     @transaction.atomic
     def new_password(self, data):
@@ -111,5 +112,5 @@ class PasswordManager:
                 )
         except ObjectDoesNotExist:
             raise NotFound(
-                'User not found. Review the email.'
+                'User not found, review the email.'
             )

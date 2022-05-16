@@ -214,6 +214,17 @@ class Rest {
     }
   })
 
+  onRegistrateYourself = InterceptorFetch(body => {
+    const result = fetch(this.getPath(), {
+      method: 'POST',
+      headers: this.headers,
+      body: JSON.stringify(body)
+    })
+    return {
+      response: result, obj: this
+    }
+  })
+
   onNewPassword = InterceptorFetch(body => {
     const result = fetch(this.getPath(), {
       method: 'PUT',
