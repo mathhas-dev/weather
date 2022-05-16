@@ -172,6 +172,36 @@ class Command(BaseCommand):
             "name": "Get managed users by email",
             "name_alias": "user_get_user_by_email"
         },
+
+        # Weather
+        {
+            "name": "Get favorite day weather",
+            "name_alias": "weather_get_favorite_day_weather"
+        },
+        {
+            "name": "Get weather from api WOEID",
+            "name_alias": "weather_get_weather_from_api_WOEID"
+        },
+        {
+            "name": "Get weather from api GEOIP",
+            "name_alias": "weather_get_weather_from_api_GEOIP"
+        },
+        {
+            "name": "Save favorite forecast",
+            "name_alias": "weather_save_favorite_forecast"
+        },
+        {
+            "name": "Remove favorite forecast",
+            "name_alias": "weather_remove_favorite_forecast"
+        },
+        {
+            "name": "List favorite forecasts",
+            "name_alias": "weather_list_favorite_forecasts"
+        },
+        {
+            "name": "List cities",
+            "name_alias": "weather_list_cities"
+        },
     ]
 
     def __create_functionalities(self):
@@ -187,7 +217,9 @@ class Command(BaseCommand):
                 "user_create", "user_update", "user_destroy",
                 "user_list", "user_retrieve", "user_consult_cpf",
                 "user_retrieve_unlock", "user_unlock", "user_block",
-                "user_change_active_profile", "user_get_user_by_email"
+                "user_change_active_profile", "user_get_user_by_email", "weather_get_favorite_day_weather",
+                "weather_get_weather_from_api_WOEID", "weather_get_weather_from_api_GEOIP", "weather_save_favorite_forecast",
+                "weather_remove_favorite_forecast", "weather_list_favorite_forecasts", "weather_list_cities"
             ]
         },
         {
@@ -195,7 +227,9 @@ class Command(BaseCommand):
                 "user_user"
             ],
             "functionality": [
-                "user_change_active_profile",
+                "user_change_active_profile", "weather_get_favorite_day_weather",
+                "weather_get_weather_from_api_WOEID", "weather_get_weather_from_api_GEOIP", "weather_save_favorite_forecast",
+                "weather_remove_favorite_forecast", "weather_list_favorite_forecasts", "weather_list_cities"
             ]
         }
     ]

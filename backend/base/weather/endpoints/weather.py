@@ -13,7 +13,7 @@ from rest_framework import status
 class WeatherResourcePermission(ResourcePermission):
     class Meta:
         resource = "weather"
-        ignore_actions = ["list", "update"]
+        ignore_actions = []
 
 
 class WeatherResource(ResourceCore, ModelCrud):
