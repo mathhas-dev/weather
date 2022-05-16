@@ -3,6 +3,7 @@ import codecs
 from django.conf import settings
 from django.utils.timezone import activate
 from django.utils import timezone
+from weather.models import City
 from core.models import MessageTemplate, UserSequence
 from django.contrib.auth.models import Group
 from django.core.management import BaseCommand
@@ -75,6 +76,8 @@ class Command(BaseCommand):
 
                 self.stdout.write(self.style.SUCCESS(
                     '\n5/6...\n'))
+
+                self.__create_cities()
 
                 self.stdout.write(self.style.SUCCESS(
                     '\n6/6...\n'))
@@ -244,3 +247,26 @@ class Command(BaseCommand):
             text = codecs.open(f"././././security/templates/emails/{name}.html",
                                "r", encoding="utf-8").read()
             MessageTemplate.objects.create(path=name, template=text, type=1)
+
+    def __create_cities(self):
+        cities = [
+            {
+                'name': 'Brasília',
+                'woeid': '455819'
+            },
+            {
+                'name': 'Rio de Janeiro',
+                'woeid': '455825'
+            },
+            {
+                'name': 'Porto Alegre',
+                'woeid': '455823'
+            },
+            {
+                'name': 'Manaus',
+                'woeid': '455833'
+            }
+        ]
+
+        for city in cities:
+            City.objects.create(**city)

@@ -1,6 +1,5 @@
-from weather.serializers.favoriteForecast import FavoriteForecastSerializer
 from core.utils.user import UserUtils
-from weather.serializers import WeatherSerializer
+from weather.serializers import WeatherSerializer, FavoriteForecastSerializer, CitySerializer
 from weather.business import WeatherService
 from access.permissions import ResourcePermission
 from weather.validators import WeatherValidator
@@ -36,10 +35,10 @@ class WeatherResource(ResourceCore, ModelCrud):
         except Exception as e:
             raise APIException(e)
 
-    @action(detail=False, methods=['GET'], url_path='get_weather_from_api_WOEID')
-    def get_weather_from_api_WOEID(self, request):
+    @action(detail=False, methods=['GET'], url_path='get_weather_from_api_WOEID/(?P<woeid>\d+)')
+    def get_weather_from_api_WOEID(self, request, woeid):
+        # Will get forecast for location based on user city input
         try:
-            woeid = request.data['woeid']
             service = WeatherService()
             results = service.get_weather_from_api_WOEID(woeid)
             serializer = WeatherSerializer(results)
@@ -49,6 +48,7 @@ class WeatherResource(ResourceCore, ModelCrud):
 
     @action(detail=False, methods=['GET'], url_path='get_weather_from_api_GEOIP')
     def get_weather_from_api_GEOIP(self, request):
+        # Will get forecast for location based on user ip geolocation
         try:
             user_ip = UserUtils.get_user_ip(request)
             service = WeatherService()
@@ -86,6 +86,17 @@ class WeatherResource(ResourceCore, ModelCrud):
             service = WeatherService()
             favorites = service.list_favorite_forecasts(request.user)
             serializer = FavoriteForecastSerializer(favorites, many=True)
+
+            return Response(serializer.data)
+        except Exception as e:
+            raise APIException(e)
+
+    @action(detail=False, methods=['GET'], url_path='list_cities')
+    def list_cities(self, request):
+        try:
+            service = WeatherService()
+            favorites = service.list_cities()
+            serializer = CitySerializer(favorites, many=True)
 
             return Response(serializer.data)
         except Exception as e:

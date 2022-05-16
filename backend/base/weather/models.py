@@ -26,3 +26,8 @@ class FavoriteForecast(BaseModel):
     forecast = models.ForeignKey(Forecast, on_delete=models.PROTECT)
     user = models.ForeignKey(
         User, related_name='favorite_weather_user', on_delete=models.PROTECT)
+
+
+class City(BaseModel):
+    name = models.CharField(max_length=100)
+    woeid = models.CharField(max_length=20)

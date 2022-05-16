@@ -168,20 +168,6 @@ class Rest {
     }
   })
 
-  getWithBody = InterceptorFetch(data => {
-    this.headers = {
-      'Authorization': this.authorization
-    }
-    const result = fetch(this.getPath(), {
-      method: 'GET',
-      headers: this.headers,
-      body: data
-    })
-    return {
-      response: result, obj: this
-    }
-  })
-
   getWithCookie = async () => {
     const path = this.getPath();
     const response = await axios(path, {

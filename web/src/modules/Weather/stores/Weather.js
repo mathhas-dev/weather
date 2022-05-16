@@ -11,9 +11,9 @@ const doGet = async (id) => {
 }
 
 const doGetWOEID = async (woeid = null) => {
-    const rest = new Rest('weather/get_weather_from_api_WOEID');
+    const rest = new Rest(`weather/get_weather_from_api_WOEID/${woeid}`);
     rest.api = 'weather/api';
-    const response = await rest.getWithBody(woeid);
+    const response = await rest.get();
     return await response.json();
 }
 
@@ -77,6 +77,7 @@ const weatherStore = observable({
         return this._id;
     },
     getByWOEID: async function (woeid) {
+        // Get forecast from choosen city
         this.loading = true;
         try {
             const response = await doGetWOEID(woeid);
@@ -97,23 +98,31 @@ const weatherStore = observable({
         }
     },
     getByGEOIP: async function () {
+        // This method request forecast according to the location from
+        // user ip geolocation. If some other city were set in the local storage
+        // will ignore geolocation
         this.loading = true;
-        try {
-            const response = await doGetGEOIP();
-            this.data = response;
-            this.message = {
-                content: i18n.t("Weather successfully updated."),
-                success: true
-            };
-            this.error = null;
-        } catch (error) {
-            this.error = error;
-            this.message = {
-                content: i18n.t("Error while updating Weather."),
-                error: true
-            };
-        } finally {
-            this.saving = false;
+        const city = window.localStorage.getItem('city');
+        if (city) {
+            weatherStore.getByWOEID(city);
+        } else {
+            try {
+                const response = await doGetGEOIP();
+                this.data = response;
+                this.message = {
+                    content: i18n.t("Weather successfully updated."),
+                    success: true
+                };
+                this.error = null;
+            } catch (error) {
+                this.error = error;
+                this.message = {
+                    content: i18n.t("Error while updating Weather."),
+                    error: true
+                };
+            } finally {
+                this.saving = false;
+            }
         }
     }
 }, {

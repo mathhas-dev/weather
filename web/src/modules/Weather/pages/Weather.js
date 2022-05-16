@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { observer } from 'mobx-react';
 import TodayWeatherCard, { DayWeatherCard } from 'modules/Weather/components/DayWeather';
-import { CardGroup, Step, } from 'semantic-ui-react';
-import { favoriteForecastStore, weatherStore } from '../stores';
+import { Card, CardGroup, Step, } from 'semantic-ui-react';
+import { cityStore, favoriteForecastStore, weatherStore } from '../stores';
 import { useTranslation } from "react-i18next";
 
 const FavoriteForecast = observer(props => {
@@ -30,14 +30,30 @@ const Weather = observer(props => {
     const data = weatherStore.data;
     const forecast = data?.forecast;
     const has_favorites = favoriteForecastStore.list.length;
+    const cities = cityStore.list;
 
     useEffect(() => {
         weatherStore.getByGEOIP();
         favoriteForecastStore.reload();
+        cityStore.reload();
     }, [])
 
     return (
         <>
+
+            <CardGroup centered>
+                {cities?.map(city => {
+                    return (
+                        <Card onClick={() => { cityStore.setCity(city.woeid) }}>
+                            <Card.Content>
+                                <Card.Header>
+                                    {city.name}
+                                </Card.Header>
+                            </Card.Content>
+                        </Card>
+                    );
+                })}
+            </CardGroup>
             {
                 has_favorites
                     ?
@@ -54,6 +70,7 @@ const Weather = observer(props => {
                 {forecast?.map(item =>
                     <DayWeatherCard forecast={item} />)}
             </CardGroup>
+
         </>
 
     );

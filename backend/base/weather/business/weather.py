@@ -1,5 +1,5 @@
 import requests
-from weather.models import FavoriteForecast, Forecast, Weather
+from weather.models import City, FavoriteForecast, Forecast, Weather
 from core.business import BasicService
 from django.db import transaction
 from django.conf import settings
@@ -45,6 +45,11 @@ class WeatherService(BasicService):
         qs = FavoriteForecast.objects.filter(user=user)
 
         return qs.order_by('forecast__date')
+
+    def list_cities(self):
+        qs = City.objects.all()
+
+        return qs.order_by('pk')
 
     def single(self):
         return self.list()

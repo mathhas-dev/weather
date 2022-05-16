@@ -79,6 +79,7 @@ const favoriteForecastStore = observable({
     },
 }, {
     remove: action,
+    create: action,
     reload: action
 });
 
