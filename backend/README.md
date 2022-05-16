@@ -50,3 +50,6 @@ Referencia de WOEID: https://muftsabazaar.com/blog/post/list-of-woeid-codes-of-b
 ```
 sudo apt-get install libpq-dev python-dev
 ```
+
+### ER Diagram:
+![erdiagram](https://user-images.githubusercontent.com/56370296/168668284-4a3ae670-85ee-41c9-a8b9-c7b9384c715e.png)
