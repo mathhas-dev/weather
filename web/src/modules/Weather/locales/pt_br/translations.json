@@ -1,3 +1,8 @@
 {
-    "Today": "Hoje"
+    "Today": "Hoje",
+    "Favorites": "Favoritos",
+    "Forecast": "Previsão",
+    "Now is": "Agora é",
+    "Humidity": "Humidade",
+    "Wind Speed": "Velocidade do vento"
 }

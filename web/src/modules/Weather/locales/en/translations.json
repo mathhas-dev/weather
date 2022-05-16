@@ -1,3 +1,8 @@
 {
-    "Today": "Today"
+    "Today": "Today",
+    "Favorites": "Favorites",
+    "Forecast": "Forecast",
+    "Now is": "Now is",
+    "Humidity": "Humidity",
+    "Wind Speed": "Wind Speed"
 }
