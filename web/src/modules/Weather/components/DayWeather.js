@@ -5,6 +5,7 @@ import sunny_image from 'assets/sunny.png';
 import rain_image from 'assets/rain.png';
 import { useTranslation } from "react-i18next";
 import { observer } from 'mobx-react';
+import { favoriteForecastStore } from '../stores';
 
 // List of conditions from API:
 
@@ -30,9 +31,9 @@ const TodayWeatherCard = observer(props => {
   const { forecast } = props;
   let icon, day, weekDay;
 
-  if (forecast.results?.condition_slug in sun) {
+  if (sun.includes(forecast.results?.condition_slug)) {
     icon = sun_image;
-  } else if (forecast.results?.condition_slug in sunny) {
+  } else if (sunny.includes(forecast.results?.condition_slug)) {
     icon = sunny_image;
   } else {
     icon = rain_image;
@@ -89,15 +90,23 @@ const TodayWeatherCard = observer(props => {
 
 const DayWeatherCard = observer(props => {
   const { t } = useTranslation();
-  const { forecast } = props;
+  const { forecast, favorite } = props;
   let icon;
 
-  if (forecast.condition_slug in sun) {
+  if (sun.includes(forecast?.condition)) {
     icon = sun_image;
-  } else if (forecast.condition_slug in sunny) {
+  } else if (sunny.includes(forecast?.condition)) {
     icon = sunny_image;
   } else {
     icon = rain_image;
+  }
+
+  const handleCreateFavorite = (id) => {
+    favoriteForecastStore.create(id);
+  }
+
+  const handleRemoveFavorite = (id) => {
+    favoriteForecastStore.remove(id);
   }
 
   return (
@@ -110,7 +119,20 @@ const DayWeatherCard = observer(props => {
         wrapped
       />
 
+
       <Card.Content>
+
+        {
+          favorite
+            ?
+            <a onClick={() => handleRemoveFavorite(forecast.id)} >
+              <Icon link name="delete" color='red' />
+            </a>
+            :
+            <a onClick={() => handleCreateFavorite(forecast.id)} >
+              <Icon name="star" />
+            </a>
+        }
 
         <Card.Header>
           <div style={{ textAlign: 'center' }}>

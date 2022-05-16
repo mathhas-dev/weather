@@ -58,11 +58,11 @@ class WeatherResource(ResourceCore, ModelCrud):
         except Exception as e:
             raise APIException(e)
 
-    @action(detail=False, methods=['POST'], url_path='save_favorite_weather')
-    def save_favorite_weather(self, request):
+    @action(detail=False, methods=['POST'], url_path='save_favorite_forecast')
+    def save_favorite_forecast(self, request):
         try:
             service = WeatherService()
-            instance = service.save_favorite_weather(request.user, request.data['forecast_id'])
+            instance = service.save_favorite_forecast(request.user, request.data['forecast_id'])
             if instance:
                 return Response({'detail': 'success'})
 
@@ -70,21 +70,21 @@ class WeatherResource(ResourceCore, ModelCrud):
         except Exception as e:
             raise APIException(e)
 
-    @action(detail=False, methods=['PUT'], url_path='remove_favorite_weather')
-    def remove_favorite_weather(self, request):
+    @action(detail=False, methods=['PUT'], url_path='remove_favorite_forecast')
+    def remove_favorite_forecast(self, request):
         try:
             service = WeatherService()
-            service.remove_favorite_weather(request.user, request.data['forecast_id'])
+            service.remove_favorite_forecast(request.user, request.data['forecast_id'])
 
             return Response({'detail': 'success'})
         except Exception as e:
             raise APIException(e)
 
-    @action(detail=False, methods=['GET'], url_path='list_favorite_forcasts')
-    def list_favorite_forcasts(self, request):
+    @action(detail=False, methods=['GET'], url_path='list_favorite_forecasts')
+    def list_favorite_forecasts(self, request):
         try:
             service = WeatherService()
-            favorites = service.list_favorite_forcasts(request.user)
+            favorites = service.list_favorite_forecasts(request.user)
             serializer = FavoriteForecastSerializer(favorites, many=True)
 
             return Response(serializer.data)

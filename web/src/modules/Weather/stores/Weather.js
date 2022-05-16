@@ -24,13 +24,6 @@ const doGetGEOIP = async () => {
     return await response.json();
 }
 
-const getFavoriteWeather = async (id) => {
-    const rest = new Rest('weather');
-    rest.api = 'weather/api';
-    const response = await rest.get(id);
-    return await response.json();
-}
-
 const parseError = (error) => {
     let content = error
     if (typeof content === 'object') {
@@ -128,13 +121,4 @@ const weatherStore = observable({
 });
 
 
-const weatherDomain = observable({
-    weather: [],
-    search_weather: action(async function (weather_id) {
-        const json = await getFavoriteWeather(weather_id);
-        this.weather = json;
-    }),
-});
-
-
-export { weatherStore, weatherDomain };
+export { weatherStore };

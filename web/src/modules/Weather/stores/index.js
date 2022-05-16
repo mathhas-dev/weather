@@ -1,3 +1,4 @@
-import { weatherStore, weatherDomain } from "./Weather";
+import { weatherStore } from "./Weather";
+import { favoriteForecastStore } from "./FavoriteForecast";
 
-export { weatherStore, weatherDomain };
+export { weatherStore, favoriteForecastStore };

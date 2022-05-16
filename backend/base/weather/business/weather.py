@@ -41,10 +41,10 @@ class WeatherService(BasicService):
 
         return self.get(instance.pk)
 
-    def list_favorite_forcasts(self, user):
+    def list_favorite_forecasts(self, user):
         qs = FavoriteForecast.objects.filter(user=user)
 
-        return qs.order_by('pk')
+        return qs.order_by('forecast__date')
 
     def single(self):
         return self.list()
@@ -65,6 +65,9 @@ class WeatherService(BasicService):
         for day in forecasts:
             self.save_forecast(instance, day)
 
+        del instance.results['forecast']
+        instance.save()
+
         return instance
 
     def save_forecast(self, weather, data):
@@ -78,7 +81,7 @@ class WeatherService(BasicService):
         return instance
 
     @transaction.atomic
-    def save_favorite_weather(self, user, forecast_id):
+    def save_favorite_forecast(self, user, forecast_id):
         forecast = Forecast.objects.get(id=forecast_id)
 
         instance = FavoriteForecast.objects.update_or_create(
@@ -89,7 +92,7 @@ class WeatherService(BasicService):
         return instance
 
     @transaction.atomic
-    def remove_favorite_weather(self, user, forecast_id):
+    def remove_favorite_forecast(self, user, forecast_id):
         forecast = Forecast.objects.get(id=forecast_id)
 
         instance = FavoriteForecast.objects.filter(
