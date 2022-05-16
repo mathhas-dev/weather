@@ -12,15 +12,11 @@ const FavoriteForecast = observer(props => {
     return (
         <>
             <h3>{t("Favorites")}</h3>
-            <Step.Group>
+            <Card.Group centered>
                 {favorites?.map(item =>
-                    <Step>
-                        <Step.Content>
-                            <DayWeatherCard forecast={item.forecast} favorite />
-                        </Step.Content>
-                    </Step>
+                    <DayWeatherCard forecast={item.forecast} favorite />
                 )}
-            </Step.Group>
+            </Card.Group>
         </>
     );
 });
