@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
     'rest_framework',
     'corsheaders',
     'guardian',
@@ -93,15 +94,15 @@ WSGI_APPLICATION = 'base.wsgi.application'
 # GAE = Google App Engine (configurações para mudar ipinterno e externo de acesso ao banco em produção)
 if not os.getenv('GAE_APPLICATION', None):
     DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR + 'db.sqlite3',
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR + 'db.sqlite3',
+        }
     }
-}
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': config('DB_NAME'),
             'USER': config('DB_USER'),
             'PASSWORD': config('DB_PASSWORD'),
@@ -176,7 +177,8 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.spl
 SESSION_COOKIE_DOMAIN = config('SESSION_COOKIE_DOMAIN')
 SESSION_COOKIE_AGE = config('SESSION_COOKIE_AGE', cast=int)
 CORS_ALLOW_CREDENTIALS = config('CORS_ALLOW_CREDENTIALS', cast=bool)
-CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST', cast=lambda v: [s.strip() for s in v.split(',')])
+CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST', cast=lambda v: [
+                               s.strip() for s in v.split(',')])
 CSRF_COOKIE_DOMAIN = config('CSRF_COOKIE_DOMAIN')
 CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS')
 

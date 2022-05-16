@@ -45,3 +45,8 @@ python manage.py initdata
 Referencia de WOEID: https://muftsabazaar.com/blog/post/list-of-woeid-codes-of-brazil
 
 * Para encontrar os apps desenvolvidos acesse a pasta "base"
+
+### Case se depare com algum ao instalar o psycopg, certifique-se ter ter o postgres instalado, ou execute o seguinte comando:
+```
+sudo apt-get install libpq-dev python-dev
+```
