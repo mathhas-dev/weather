@@ -43,7 +43,7 @@ const TodayWeatherCard = observer(props => {
   weekDay = forecast.forecast?.[0]?.weekday
 
   return (
-    <Card centered fluid raised>
+    <Card centered fluid raised color='green'>
 
       <Image
         size='small'
@@ -110,7 +110,7 @@ const DayWeatherCard = observer(props => {
   }
 
   return (
-    <Card>
+    <Card color={favorite ? 'yellow' : 'blue'}>
 
       <Image
         size='mini'
