@@ -40,7 +40,7 @@ const TodayWeatherCard = observer(props => {
   }
 
   day = forecast.results?.date.split('/')[0];
-  weekDay = forecast.results?.forecast?.[0]?.weekday
+  weekDay = forecast.forecast?.[0]?.weekday
 
   return (
     <Card centered fluid raised>
@@ -136,6 +136,10 @@ const DayWeatherCard = observer(props => {
 
         <Card.Header>
           <div style={{ textAlign: 'center' }}>
+
+            {forecast.city}
+
+            <br />
 
             {forecast.date} - {forecast.weekday}
 

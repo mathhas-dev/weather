@@ -11,4 +11,6 @@ class FavoriteForecastSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def get_forecast(self, obj):
-        return model_to_dict(obj.forecast)
+        forecast_dict = model_to_dict(obj.forecast)
+        forecast_dict['city'] = obj.forecast.weather.city
+        return forecast_dict

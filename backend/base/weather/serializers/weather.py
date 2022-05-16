@@ -23,6 +23,8 @@ class WeatherSerializer(serializers.ModelSerializer):
         forecast = []
 
         for item in forecasts:
-            forecast.append(model_to_dict(item))
+            item_dict = model_to_dict(item)
+            item_dict['city'] = item.weather.city
+            forecast.append(item_dict)
 
         return forecast
