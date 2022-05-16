@@ -28,7 +28,7 @@ env_variables:
   EMAIL_NOTIFICATION_DEV: True
   EMAIL_NOTIFICATION_DEV_TO: ''
   SYSTEM_URL: ""
-  SYSTEM_NAME: 'Base'
+  SYSTEM_NAME: 'Voltalia Weather'
   SYSTEM_LOGO: SYSTEM_URL+""
 
 
