@@ -15,6 +15,10 @@ import TRANSLATIONS_EN_WEATHER from "../modules/Weather/locales/en/translations.
 import TRANSLATIONS_ES_WEATHER from "../modules/Weather/locales/es/translations.json";
 import TRANSLATIONS_PT_BR_WEATHER from "../modules/Weather/locales/pt_br/translations.json";
 
+import TRANSLATIONS_EN_HOME from "../modules/Home/locales/en/translations.json";
+import TRANSLATIONS_ES_HOME from "../modules/Home/locales/es/translations.json";
+import TRANSLATIONS_PT_BR_HOME from "../modules/Home/locales/pt_br/translations.json";
+
 // A internacionalização desse sistema foi baseada no artigo abaixo:
 // https://lokalise.com/blog/how-to-internationalize-react-application-using-i18next/
 
@@ -27,14 +31,23 @@ i18n
             // Para adicionar arquivos de outros módulos, faça
             // por exemplo: { ...TRANSLATIONS_EN_MODULE, ...TRANSLATIONS_EN_USER } 
             en: {
-                translation: { ...TRANSLATIONS_EN_MAIN, ...TRANSLATIONS_EN_USER, ...TRANSLATIONS_EN_WEATHER }
+                translation: {
+                    ...TRANSLATIONS_EN_MAIN, ...TRANSLATIONS_EN_USER, ...TRANSLATIONS_EN_WEATHER,
+                    ...TRANSLATIONS_EN_HOME
+                }
 
             },
             es: {
-                translation: { ...TRANSLATIONS_ES_MAIN, ...TRANSLATIONS_ES_USER, ...TRANSLATIONS_ES_WEATHER }
+                translation: {
+                    ...TRANSLATIONS_ES_MAIN, ...TRANSLATIONS_ES_USER, ...TRANSLATIONS_ES_WEATHER,
+                    ...TRANSLATIONS_ES_HOME
+                }
             },
             pt_br: {
-                translation: { ...TRANSLATIONS_PT_BR_MAIN, ...TRANSLATIONS_PT_BR_USER, ...TRANSLATIONS_PT_BR_WEATHER }
+                translation: {
+                    ...TRANSLATIONS_PT_BR_MAIN, ...TRANSLATIONS_PT_BR_USER, ...TRANSLATIONS_PT_BR_WEATHER,
+                    ...TRANSLATIONS_PT_BR_HOME
+                }
             }
         }
     });

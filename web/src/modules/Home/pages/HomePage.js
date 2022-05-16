@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Page from 'pageTemplates/Comum'
-import { Header, Message } from 'semantic-ui-react'
+import { Header, Icon, Message } from 'semantic-ui-react'
 import { useTranslation } from "react-i18next";
 import "../../../locales/i18n";
 import SelectLanguage from '../../../locales/component'
@@ -50,6 +50,13 @@ const HomePage = observer(props => {
 
   return (
     <Page suppressBreadcrumb>
+
+      <div style={{ float: 'right' }}>
+        <Icon name='star' />
+        {t("Made by")} Matheus Henrique 
+        <Icon name='star' />
+      </div>
+
       <SelectLanguage />
 
       <Message
