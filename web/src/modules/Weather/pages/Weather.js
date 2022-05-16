@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { observer } from 'mobx-react';
 import TodayWeatherCard, { DayWeatherCard } from 'modules/Weather/components/DayWeather';
-import { Card, CardGroup, Step, } from 'semantic-ui-react';
+import { Card, CardGroup, Icon } from 'semantic-ui-react';
 import { cityStore, favoriteForecastStore, weatherStore } from '../stores';
 import { useTranslation } from "react-i18next";
 
@@ -21,12 +21,41 @@ const FavoriteForecast = observer(props => {
     );
 });
 
+const Cities = observer(props => {
+    const { t } = useTranslation();
+    const cities = cityStore.list;
+
+    return (
+        <CardGroup centered>
+            <Card onClick={() => { cityStore.removeCity() }}>
+                <Card.Content>
+                    <Card.Header>
+                        <Icon name='star' />
+                        {t("My City")}
+                    </Card.Header>
+                </Card.Content>
+            </Card>
+
+            {cities?.map(city => {
+                return (
+                    <Card onClick={() => { cityStore.setCity(city.woeid) }}>
+                        <Card.Content>
+                            <Card.Header>
+                                {city.name}
+                            </Card.Header>
+                        </Card.Content>
+                    </Card>
+                );
+            })}
+        </CardGroup>
+    );
+});
+
 const Weather = observer(props => {
     const { t } = useTranslation();
     const data = weatherStore.data;
     const forecast = data?.forecast;
     const has_favorites = favoriteForecastStore.list.length;
-    const cities = cityStore.list;
 
     useEffect(() => {
         weatherStore.getByGEOIP();
@@ -37,19 +66,7 @@ const Weather = observer(props => {
     return (
         <>
 
-            <CardGroup centered>
-                {cities?.map(city => {
-                    return (
-                        <Card onClick={() => { cityStore.setCity(city.woeid) }}>
-                            <Card.Content>
-                                <Card.Header>
-                                    {city.name}
-                                </Card.Header>
-                            </Card.Content>
-                        </Card>
-                    );
-                })}
-            </CardGroup>
+            <Cities />
             {
                 has_favorites
                     ?

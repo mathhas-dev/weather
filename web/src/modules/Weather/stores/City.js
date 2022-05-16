@@ -6,6 +6,9 @@ import { weatherStore } from './Weather';
 const setCityCache = (value) =>
     window.localStorage.setItem("city", value)
 
+const removeCityCache = () =>
+    window.localStorage.removeItem("city")
+
 const doList = async () => {
     const rest = new Rest('weather/list_cities');
     rest.api = 'weather/api';
@@ -36,6 +39,11 @@ const cityStore = observable({
         this.city = woeid;
         setCityCache(woeid);
         weatherStore.getByWOEID(woeid);
+    },
+    removeCity: function () {
+        this.city = '';
+        removeCityCache();
+        weatherStore.getByGEOIP();
     },
 
 }, {
