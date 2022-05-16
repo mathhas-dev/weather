@@ -1,5 +1,5 @@
 import requests
-from weather.models import FavoriteWeather, Forecast, Weather
+from weather.models import FavoriteForecast, Forecast, Weather
 from core.business import BasicService
 from django.db import transaction
 from django.conf import settings
@@ -41,6 +41,11 @@ class WeatherService(BasicService):
 
         return self.get(instance.pk)
 
+    def list_favorite_forcasts(self, user):
+        qs = FavoriteForecast.objects.filter(user=user)
+
+        return qs.order_by('pk')
+
     def single(self):
         return self.list()
 
@@ -76,7 +81,7 @@ class WeatherService(BasicService):
     def save_favorite_weather(self, user, forecast_id):
         forecast = Forecast.objects.get(id=forecast_id)
 
-        instance = FavoriteWeather.objects.update_or_create(
+        instance = FavoriteForecast.objects.update_or_create(
             forecast=forecast, user=user, defaults={
                 'forecast': forecast, 'user': user}
         )
@@ -87,7 +92,7 @@ class WeatherService(BasicService):
     def remove_favorite_weather(self, user, forecast_id):
         forecast = Forecast.objects.get(id=forecast_id)
 
-        instance = FavoriteWeather.objects.filter(
+        instance = FavoriteForecast.objects.filter(
             forecast=forecast, user=user
         ).first().delete()  # Logical deletion
 

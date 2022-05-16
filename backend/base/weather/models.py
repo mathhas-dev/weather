@@ -22,7 +22,7 @@ class Forecast(BaseModel):
     condition = models.CharField(max_length=20)
 
 
-class FavoriteWeather(BaseModel):
+class FavoriteForecast(BaseModel):
     forecast = models.ForeignKey(Forecast, on_delete=models.PROTECT)
     user = models.OneToOneField(
         User, related_name='favorite_weather_user', on_delete=models.PROTECT)

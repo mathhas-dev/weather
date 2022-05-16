@@ -1,3 +1,4 @@
+from weather.serializers.favoriteForecast import FavoriteForecastSerializer
 from core.utils.user import UserUtils
 from weather.serializers import WeatherSerializer
 from weather.business import WeatherService
@@ -76,5 +77,16 @@ class WeatherResource(ResourceCore, ModelCrud):
             service.remove_favorite_weather(request.user, request.data['forecast_id'])
 
             return Response({'detail': 'success'})
+        except Exception as e:
+            raise APIException(e)
+
+    @action(detail=False, methods=['GET'], url_path='list_favorite_forcasts')
+    def list_favorite_forcasts(self, request):
+        try:
+            service = WeatherService()
+            favorites = service.list_favorite_forcasts(request.user)
+            serializer = FavoriteForecastSerializer(favorites, many=True)
+
+            return Response(serializer.data)
         except Exception as e:
             raise APIException(e)

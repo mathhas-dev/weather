@@ -55,7 +55,7 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='FavoriteWeather',
+            name='FavoriteForecast',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('date_update', core.db.AutoDateTimeField(default=django.utils.timezone.now)),
